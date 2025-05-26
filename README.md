@@ -1,30 +1,132 @@
-# Celeb flower shop LP
+# フローラルブティック梅田 - 公式ウェブサイト
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+大阪梅田エリアの富裕層向けギフトフラワー専門店「フローラルブティック梅田」の公式ウェブサイトです。
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bonginkan-projects/v0-celeb-flower-shop-lp)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/6A1xmJFWNWX)
+## 🌸 プロジェクト概要
 
-## Overview
+### コンセプト
+「心を贈る」感動を梅田から届ける、高品質で洗練されたフラワーギフト専門店のウェブサイト。平均単価4,000円以上の富裕層・法人様をターゲットとした、上質なブランド体験を提供します。
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+### ターゲット
+- **個人**: 梅田エリアの富裕層（平均単価4,000円以上）
+- **法人**: 定期装花、イベント装飾、ビジネスギフトを求める企業様
 
-## Deployment
+## 🛠 技術スタック
 
-Your project is live at:
+- **フレームワーク**: Next.js 15 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **UIコンポーネント**: shadcn/ui
+- **アイコン**: Lucide React
+- **デプロイ**: Vercel
 
-**[https://vercel.com/bonginkan-projects/v0-celeb-flower-shop-lp](https://vercel.com/bonginkan-projects/v0-celeb-flower-shop-lp)**
+## 📱 サイト構成
 
-## Build your app
+### メインページ
+- **ホームページ** (`/`) - ブランド紹介、サービス概要、ギャラリープレビュー
+- **オンライン注文** (`/order`) - 商品選択、カート機能、注文フォーム
+- **コンサルティング予約** (`/consultation`) - サービス選択、予約システム
+- **法人様サービス** (`/corporate`) - 企業向けサービス、導入事例
+- **ギャラリー** (`/gallery`) - 作品一覧、カテゴリフィルター
+- **店舗情報・アクセス** (`/store-info`) - 店舗詳細、アクセス情報
 
-Continue building your app on:
+### 商品詳細ページ
+- **ギフトアレンジメント** (`/products/gift-arrangement`)
+- **デザイナーズブーケ** (`/products/designer-bouquet`)
+- **オーダーメイドフラワー** (`/products/custom-arrangement`)
 
-**[https://v0.dev/chat/projects/6A1xmJFWNWX](https://v0.dev/chat/projects/6A1xmJFWNWX)**
+### その他
+- **プライバシーポリシー** (`/privacy`)
+- **特定商取引法に基づく表記** (`/terms`)
+- **404エラーページ** (`/not-found`)
 
-## How It Works
+## ✨ 主な機能
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+### ユーザー体験
+- **レスポンシブデザイン** - モバイル・タブレット・デスクトップ対応
+- **ハンバーガーメニュー** - モバイルファーストなナビゲーション
+- **パンくずナビゲーション** - 直感的なサイト内移動
+- **ギャラリーモーダル** - 作品の拡大表示機能
+
+### 商品・サービス機能
+- **商品カート** - 数量調整、合計金額計算
+- **カテゴリフィルター** - ギャラリーの作品分類
+- **予約システム** - コンサルティング予約フォーム
+- **お問い合わせフォーム** - 各種相談・注文受付
+
+### SEO・アクセシビリティ
+- **セマンティックHTML** - 適切なHTML構造
+- **ARIA属性** - スクリーンリーダー対応
+- **alt属性** - 画像の代替テキスト
+- **フォーカス管理** - キーボードナビゲーション対応
+
+## 🎨 デザインシステム
+
+### カラーパレット
+- **プライマリ**: Rose (rose-600, rose-700)
+- **セカンダリ**: Gray (gray-50 〜 gray-900)
+- **アクセント**: Pink (pink-50)
+
+### タイポグラフィ
+- **見出し**: font-serif (エレガントな印象)
+- **本文**: font-sans (読みやすさ重視)
+
+### コンポーネント
+- **shadcn/ui** ベースのカスタマイズされたUIコンポーネント
+- **統一されたスペーシング** - Tailwindのスペーシングシステム
+- **一貫したシャドウ** - shadow-lg, shadow-xl
+
+## 📁 ディレクトリ構造
+
+\`\`\`
+├── app/                          # Next.js App Router
+│   ├── page.tsx                 # ホームページ
+│   ├── order/page.tsx           # オンライン注文
+│   ├── consultation/page.tsx    # コンサルティング予約
+│   ├── corporate/page.tsx       # 法人様サービス
+│   ├── gallery/page.tsx         # ギャラリー
+│   ├── store-info/page.tsx      # 店舗情報
+│   ├── products/                # 商品詳細ページ
+│   ├── privacy/page.tsx         # プライバシーポリシー
+│   ├── terms/page.tsx           # 特定商取引法
+│   └── not-found.tsx            # 404ページ
+├── components/                   # 共通コンポーネント
+│   ├── navigation.tsx           # ヘッダーナビゲーション
+│   ├── footer.tsx               # フッター
+│   ├── breadcrumb.tsx           # パンくずナビゲーション
+│   └── ui/                      # shadcn/ui コンポーネント
+└── public/images/               # 画像アセット
+\`\`\`
+
+## 🚀 開発・デプロイ
+
+### ローカル開発
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+### ビルド
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
+
+### デプロイ
+Vercelに自動デプロイ設定済み
+
+## 📞 店舗情報
+
+- **店舗名**: フローラルブティック梅田
+- **住所**: 〒530-0001 大阪市北区梅田1丁目2番3号
+- **電話**: 06-1234-5678
+- **営業時間**: 平日 11:00-19:00 / 土日祝 10:00-18:00
+- **定休日**: 不定休（市場休業日に準ずる）
+
+## 📝 ライセンス
+
+このプロジェクトは商用利用を目的としており、すべての権利はフローラルブティック梅田に帰属します。
+
+---
+
+© 2024 フローラルブティック梅田. All Rights Reserved.
