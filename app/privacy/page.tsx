@@ -1,11 +1,9 @@
 import Navigation from "@/components/navigation"
+import Footer from "@/components/footer"
 import Breadcrumb from "@/components/breadcrumb"
 
 export default function PrivacyPage() {
-  const breadcrumbItems = [
-    { href: "/", label: "ホーム" },
-    { label: "プライバシーポリシー" },
-  ]
+  const breadcrumbItems = [{ href: "/", label: "ホーム" }, { label: "プライバシーポリシー" }]
 
   return (
     <div className="min-h-screen bg-white">
@@ -16,7 +14,7 @@ export default function PrivacyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-serif text-gray-900 mb-8 text-center">プライバシーポリシー</h1>
-            
+
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 mb-8">
                 フローラルブティック梅田（以下「当店」）は、お客様の個人情報の保護に関して、以下のプライバシーポリシーを定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取組みを徹底させることにより、個人情報の保護を推進致します。
@@ -31,7 +29,9 @@ export default function PrivacyPage() {
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">個人情報の利用目的</h2>
-                <p className="text-gray-700 mb-4">お客様からお預かりした個人情報は、当店からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。</p>
+                <p className="text-gray-700 mb-4">
+                  お客様からお預かりした個人情報は、当店からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。
+                </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
                   <li>商品の配送・サービスの提供</li>
                   <li>お客様からのお問い合わせへの対応</li>
@@ -76,9 +76,30 @@ export default function PrivacyPage() {
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">お問い合せ</h2>
-                <p className="text-gray-700 mb-4">
-                  当店の個人情報の取扱に関するお問い合せは下記までご連絡ください。
-                </p>
+                <p className="text-gray-700 mb-4">当店の個人情報の取扱に関するお問い合せは下記までご連絡ください。</p>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>フ\
+                    <strong>フローラルブティック梅田</strong>
+                    <br />
+                    〒530-0001 大阪市北区梅田1丁目2番3号
+                    <br />
+                    TEL: 06-1234-5678
+                    <br />
+                    Email: info@floral-boutique-umeda.com
+                  </p>
+                </div>
+              </section>
+
+              <div className="text-center text-gray-600 text-sm mt-12">
+                <p>制定日：2024年1月1日</p>
+                <p>最終更新日：2024年1月1日</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
