@@ -75,40 +75,46 @@ export default function OrderPage() {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Content */}
-      <main className="py-12">
+      <main className="py-8 sm:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Page Header */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-serif text-gray-900 mb-4">オンライン注文</h1>
-              <p className="text-xl text-gray-700">お客様の想いを込めた特別なフラワーギフトをお選びください</p>
+            <div className="text-center mb-8 sm:mb-12">
+              <h1 className="text-3xl sm:text-4xl font-serif text-gray-900 mb-3 sm:mb-4">オンライン注文</h1>
+              <p className="text-lg sm:text-xl text-gray-700 px-4">
+                お客様の想いを込めた特別なフラワーギフトをお選びください
+              </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* Product Selection */}
               <div className="lg:col-span-2">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">商品を選択</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6">商品を選択</h2>
 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {products.map((product) => (
                     <Card key={product.id} className="border-0 shadow-lg">
-                      <CardContent className="p-6">
-                        <div className="flex flex-col md:flex-row gap-6">
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                           <Image
                             src={product.image || "/placeholder.svg"}
                             alt={product.name}
                             width={200}
                             height={150}
-                            className="w-full md:w-48 h-36 object-cover rounded-lg"
+                            className="w-full sm:w-48 h-36 object-cover rounded-lg"
                           />
                           <div className="flex-1">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                            <p className="text-gray-700 mb-4">{product.description}</p>
-                            <p className="text-2xl font-bold text-rose-600 mb-4">¥{product.price.toLocaleString()}〜</p>
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
+                            <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">{product.description}</p>
+                            <p className="text-xl sm:text-2xl font-bold text-rose-600 mb-3 sm:mb-4">
+                              ¥{product.price.toLocaleString()}〜
+                            </p>
 
-                            <div className="flex items-center space-x-4">
+                            <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                               <div className="flex items-center space-x-2">
-                                <Label htmlFor={`quantity-${product.id}`}>数量:</Label>
+                                <Label htmlFor={`quantity-${product.id}`} className="text-sm">
+                                  数量:
+                                </Label>
                                 <div className="flex items-center space-x-2">
                                   <Button
                                     variant="outline"
@@ -118,7 +124,7 @@ export default function OrderPage() {
                                   >
                                     <Minus className="h-4 w-4" />
                                   </Button>
-                                  <span className="w-8 text-center">{quantities[product.id] || 1}</span>
+                                  <span className="w-8 text-center text-sm">{quantities[product.id] || 1}</span>
                                   <Button
                                     variant="outline"
                                     size="icon"
@@ -131,7 +137,7 @@ export default function OrderPage() {
                               </div>
                               <Button
                                 onClick={() => addToCart(product)}
-                                className="bg-rose-600 hover:bg-rose-700 text-white"
+                                className="bg-rose-600 hover:bg-rose-700 text-white w-full sm:w-auto"
                               >
                                 <ShoppingCart className="h-4 w-4 mr-2" />
                                 カートに追加
@@ -146,32 +152,34 @@ export default function OrderPage() {
               </div>
 
               {/* Order Summary & Form */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {/* Cart Summary */}
                 <Card className="border-0 shadow-lg">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">ご注文内容</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl text-gray-900">ご注文内容</CardTitle>
                   </CardHeader>
                   <CardContent>
                     {selectedProducts.length === 0 ? (
-                      <p className="text-gray-500 text-center py-4">商品を選択してください</p>
+                      <p className="text-gray-500 text-center py-4 text-sm">商品を選択してください</p>
                     ) : (
                       <div className="space-y-4">
                         {selectedProducts.map((product, index) => (
                           <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100">
                             <div>
-                              <p className="font-medium text-gray-900">{product.name}</p>
-                              <p className="text-sm text-gray-600">数量: {product.quantity}</p>
+                              <p className="font-medium text-gray-900 text-sm">{product.name}</p>
+                              <p className="text-xs text-gray-600">数量: {product.quantity}</p>
                             </div>
-                            <p className="font-semibold text-gray-900">
+                            <p className="font-semibold text-gray-900 text-sm">
                               ¥{(product.price * product.quantity).toLocaleString()}
                             </p>
                           </div>
                         ))}
                         <div className="pt-4 border-t border-gray-200">
                           <div className="flex justify-between items-center">
-                            <p className="text-lg font-semibold text-gray-900">合計金額</p>
-                            <p className="text-xl font-bold text-rose-600">¥{getTotalPrice().toLocaleString()}</p>
+                            <p className="text-base sm:text-lg font-semibold text-gray-900">合計金額</p>
+                            <p className="text-lg sm:text-xl font-bold text-rose-600">
+                              ¥{getTotalPrice().toLocaleString()}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -182,39 +190,51 @@ export default function OrderPage() {
                 {/* Order Form */}
                 <Card className="border-0 shadow-lg">
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">お客様情報</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl text-gray-900">お客様情報</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       <div>
-                        <Label htmlFor="lastName">姓</Label>
-                        <Input id="lastName" placeholder="山田" />
+                        <Label htmlFor="lastName" className="text-sm">
+                          姓
+                        </Label>
+                        <Input id="lastName" placeholder="山田" className="text-sm" />
                       </div>
                       <div>
-                        <Label htmlFor="firstName">名</Label>
-                        <Input id="firstName" placeholder="太郎" />
+                        <Label htmlFor="firstName" className="text-sm">
+                          名
+                        </Label>
+                        <Input id="firstName" placeholder="太郎" className="text-sm" />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="email">メールアドレス</Label>
-                      <Input id="email" type="email" placeholder="example@email.com" />
+                      <Label htmlFor="email" className="text-sm">
+                        メールアドレス
+                      </Label>
+                      <Input id="email" type="email" placeholder="example@email.com" className="text-sm" />
                     </div>
 
                     <div>
-                      <Label htmlFor="phone">電話番号</Label>
-                      <Input id="phone" placeholder="090-1234-5678" />
+                      <Label htmlFor="phone" className="text-sm">
+                        電話番号
+                      </Label>
+                      <Input id="phone" placeholder="090-1234-5678" className="text-sm" />
                     </div>
 
                     <div>
-                      <Label htmlFor="deliveryDate">お届け希望日</Label>
-                      <Input id="deliveryDate" type="date" />
+                      <Label htmlFor="deliveryDate" className="text-sm">
+                        お届け希望日
+                      </Label>
+                      <Input id="deliveryDate" type="date" className="text-sm" />
                     </div>
 
                     <div>
-                      <Label htmlFor="deliveryTime">お届け時間帯</Label>
+                      <Label htmlFor="deliveryTime" className="text-sm">
+                        お届け時間帯
+                      </Label>
                       <Select>
-                        <SelectTrigger>
+                        <SelectTrigger className="text-sm">
                           <SelectValue placeholder="時間帯を選択" />
                         </SelectTrigger>
                         <SelectContent>
@@ -226,18 +246,22 @@ export default function OrderPage() {
                     </div>
 
                     <div>
-                      <Label htmlFor="address">お届け先住所</Label>
-                      <Textarea id="address" placeholder="大阪市北区梅田..." />
+                      <Label htmlFor="address" className="text-sm">
+                        お届け先住所
+                      </Label>
+                      <Textarea id="address" placeholder="大阪市北区梅田..." className="text-sm" />
                     </div>
 
                     <div>
-                      <Label htmlFor="message">メッセージカード（任意）</Label>
-                      <Textarea id="message" placeholder="お祝いのメッセージをご記入ください" />
+                      <Label htmlFor="message" className="text-sm">
+                        メッセージカード（任意）
+                      </Label>
+                      <Textarea id="message" placeholder="お祝いのメッセージをご記入ください" className="text-sm" />
                     </div>
 
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
-                      <Label htmlFor="terms" className="text-sm">
+                    <div className="flex items-start space-x-2">
+                      <Checkbox id="terms" className="mt-1" />
+                      <Label htmlFor="terms" className="text-xs sm:text-sm leading-relaxed">
                         <Link href="/terms" className="text-rose-600 hover:underline">
                           利用規約
                         </Link>
@@ -246,7 +270,7 @@ export default function OrderPage() {
                     </div>
 
                     <Button
-                      className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 text-lg"
+                      className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 text-base sm:text-lg"
                       disabled={selectedProducts.length === 0}
                     >
                       ご注文を確定する
